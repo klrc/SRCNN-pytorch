@@ -1,3 +1,3 @@
-python test.py --weights-file "outputs/x3/best.pth" \
-               --image-file "data/butterfly_GT.bmp" \
+python test.py --weights-file "outputs/x3/best.pt" \
+               --image-file "data/ppt3.bmp" \
                --scale 3
