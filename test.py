@@ -38,7 +38,7 @@ if __name__ == "__main__":
     image = image.resize((image_width, image_height), resample=pil_image.BICUBIC)
     image = image.resize((image.width // args.scale, image.height // args.scale), resample=pil_image.BICUBIC)
     image = image.resize((image.width * args.scale, image.height * args.scale), resample=pil_image.BICUBIC)
-    image.save(f"outputs/{image_name}_bicubic_x{args.scale}.png", bitmap_forma="png")
+    image.save(f"outputs/{image_name}_bicubic_x{args.scale}.png")
 
     image = np.array(image).astype(np.float32)
     ycbcr = convert_rgb_to_ycbcr(image)
@@ -59,4 +59,4 @@ if __name__ == "__main__":
     output = np.array([preds, ycbcr[..., 1], ycbcr[..., 2]]).transpose([1, 2, 0])
     output = np.clip(convert_ycbcr_to_rgb(output), 0.0, 255.0).astype(np.uint8)
     output = pil_image.fromarray(output)
-    output.save(f"outputs/{image_name}_srcnn_x{args.scale}.png", bitmap_forma="png")
+    output.save(f"outputs/{image_name}_srcnn_x{args.scale}.png")
